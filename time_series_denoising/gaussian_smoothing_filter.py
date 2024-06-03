@@ -23,7 +23,7 @@ fwhm = 25  # in ms
 
 # Normalised time vector in ms
 k = 40
-gtime = 1000*np.arange(-k, k+1)/srate
+gtime = 1000 * np.arange(-k, k + 1) / srate
 
 # Create Gaussian window
 gauswin = np.exp(-(4 * np.log(2) * gtime ** 2) / fwhm ** 2)
@@ -72,10 +72,10 @@ filtsigMean = copy.deepcopy(signal)
 
 # Implement the running mean filter
 # Note: using mk instead of k to avoid confusion with k above
-mk = 20  # Filter window is actually mk*2+1
+mk = 20  # Filter window is actually mk * 2 + 1
 for i in range(mk + 1, n - mk - 1):
     # Each point is the average of k surrounding points
-    filtsigMean[i] = np.mean(signal[i-mk:i+mk+1])
+    filtsigMean[i] = np.mean(signal[i - mk: i + mk + 1])
 
 plt.plot(time, filtsigMean, 'b', label='Running mean')
 plt.legend()
